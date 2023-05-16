@@ -8,7 +8,7 @@ This can also be used as a Go package, I exported some utilities functions such 
   - `keyring.Encrypt` to encrypt the password and email for the `encpw` field
   - `webtoons.SignRequest` to sign the request url for the `msgpad` and `md` fields
 
-
+## Usage
 - Run the example:
 ```
 $ git clone https://github.com/d4c5d1e0/webtoons.git
