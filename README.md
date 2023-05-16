@@ -8,4 +8,15 @@ This can also be used as a Go package, I exported some utilities functions such 
   - `keyring.Encrypt` to encrypt the password and email for the `encpw` field
   - `webtoons.SignRequest` to sign the request url for the `msgpad` and `md` fields
 
-Example in `cmd/gen/main.go`
+
+- Run the example:
+```
+$ git clone https://github.com/d4c5d1e0/webtoons.git
+$ cd webtoons
+$ go run cmd/gen/main.go
+```
+- Use as a package:
+```
+$ go get -u github.com/d4c5d1e0/webtoons
+```
+
