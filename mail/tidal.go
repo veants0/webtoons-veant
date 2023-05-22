@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/d4c5d1e0/webtoons/internal/helpers"
+	"github.com/veants0/webtoons-veant/internal/helpers"
 )
 
 var (

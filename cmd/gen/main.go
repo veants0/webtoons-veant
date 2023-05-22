@@ -9,9 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/d4c5d1e0/webtoons"
-	"github.com/d4c5d1e0/webtoons/internal/helpers"
-	"github.com/d4c5d1e0/webtoons/mail"
+	"github.com/veants0/webtoons-veant"
+	"github.com/veants0/webtoons-veant/internal/helpers"
+	"github.com/veants0/webtoons-veant/mail"
 )
 
 const (
