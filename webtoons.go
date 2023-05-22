@@ -47,15 +47,11 @@ type accountInfo struct {
 }
 
 func NewCreator(proxy string, mailer mail.Mailer) (*Creator, error) {
-	p, err := url.Parse(proxy)
-	if err != nil {
-		return nil, fmt.Errorf("invalid proxy format: %w", err)
-	}
 
 	jar, _ := cookiejar.New(nil)
 
 	client := &http.Client{
-		Transport: &http.Transport{Proxy: http.ProxyURL(p), ForceAttemptHTTP2: true},
+		Transport: &http.Transport{ForceAttemptHTTP2: true},
 		Timeout:   10 * time.Second,
 		Jar:       jar,
 	}

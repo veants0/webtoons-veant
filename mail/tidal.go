@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	emailEndpoint = "https://api.tidal.lol/api/emails?address=%s"
+	emailEndpoint = "https://api.tidal.lol/api/v1/emails/%s"
 	maxCount      = 20
 )
 
@@ -18,17 +18,19 @@ var _ Mailer = (*Tidal)(nil)
 
 type tidalApiResponse struct {
 	Code   int           `json:"code"`
-	Emails []tidalEmails `json:"emails,omitempty"`
+	Emails []tidalEmails `json:"emails"`
 }
 
 type tidalEmails struct {
-	ID       string   `json:"id"`
-	To       []string `json:"to"`
-	From     string   `json:"from"`
-	Date     string   `json:"date"`
-	Subject  string   `json:"subject"`
-	TextBody string   `json:"text_body"`
-	HTMLBody string   `json:"html_body"`
+	UniqueID string `json:"unique_id"`
+	To       string `json:"to"`
+	From     string `json:"from"`
+	Subject  string `json:"subject"`
+	Date     string `json:"date"`
+	Body     struct {
+		Text string `json:"text"`
+		HTML string `json:"html"`
+	} `json:"body"`
 }
 
 type Tidal struct {
@@ -95,7 +97,7 @@ func (t *Tidal) GetContent(address string) (string, error) {
 			continue
 		}
 
-		return result.Emails[len(result.Emails)-1].TextBody, nil
+		return result.Emails[len(result.Emails)-1].Body.Text, nil
 	}
 }
 

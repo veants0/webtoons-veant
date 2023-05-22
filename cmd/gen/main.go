@@ -31,7 +31,7 @@ var promos = func() *os.File {
 func main() {
 	defer promos.Close()
 	mailers := []mail.Mailer{
-		mail.NewTidalMailer("tidal.lol"),
+		mail.NewTidalMailer("ecriminal.online"),
 	}
 
 	for i := 0; i < ThreadNumber; i++ {
